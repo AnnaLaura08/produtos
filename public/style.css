@@ -1,16 +1,52 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (Tons de Roxo)
+   ========================================================================== */
 * {
   box-sizing: border-box;
 }
 
 :root {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2b2124;
-  background: #fff5f7;
+  
+  /* Paleta de Cores */
+  --bg-main: #f8f6fc;          /* Fundo ultra claro, leve toque violeta */
+  --bg-panel: #ffffff;         /* Fundo dos painéis */
+  --text-main: #23192e;        /* Texto principal escuro */
+  --text-muted: #645570;       /* Texto secundário/atenuado */
+  
+  --primary: #7c3aed;          /* Roxo principal moderno (Vibrant Purple) */
+  --primary-hover: #6d28d9;    /* Roxo mais profundo para hover */
+  --primary-light: #f5f3ff;    /* Fundo de tabelas/destaques */
+  --border-color: #e9d5ff;     /* Borda roxa clara */
+  --border-focus: #a78bfa;     /* Borda ao clicar no input */
+  
+  --secondary: #71717a;        /* Botão secundário */
+  --shadow: rgba(124, 58, 237, 0.06); /* Sombra sutil moderna */
 }
 
 body {
   margin: 0;
-  padding: 0 16px 32px;
+  padding: 0 24px 48px; /* Mais espaço nas bordas da tela */
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. ESTRUTURA E LAYOUT
+   ========================================================================== */
+header, main {
+  max-width: 940px; /* Levemente mais compacto para centralizar melhor */
+  margin: 40px auto; /* Mais espaço no topo */
+}
+
+main {
+  margin-top: 32px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .header-actions {
@@ -18,89 +54,113 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.login-panel {
-  max-width: 480px;
-  margin: 0 auto;
-}
-
-header {
-  max-width: 980px;
-  margin: 20px auto;
-  text-align: center;
-}
-
-h1 {
-  margin: 0 0 4px;
-  font-size: 2rem;
-  color: #d23669;
-}
-
-p {
-  margin: 0;
-  color: #705a63;
-}
-
-main {
-  max-width: 980px;
-  margin: 24px auto;
+  gap: 16px;
 }
 
 .panel {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(210, 54, 105, 0.05);
-  margin-bottom: 24px;
+  background: var(--bg-panel);
+  border-radius: 16px; /* Bordas mais arredondadas e modernas */
+  padding: 28px; /* Mais espaço interno no painel */
+  box-shadow: 0 10px 30px var(--shadow), 0 1px 3px rgba(0,0,0,0.02);
+  margin-bottom: 32px;
+}
+
+.login-panel {
+  max-width: 450px;
+  margin: 40px auto;
+}
+
+/* ==========================================================================
+   3. TIPOGRAFIA (Títulos Renovados)
+   ========================================================================== */
+h1 {
+  margin: 0 0 8px;
+  font-size: 2.4rem; /* Um pouco maior e mais imponente */
+  font-weight: 800;  /* Bem marcante */
+  color: var(--primary);
+  letter-spacing: -0.5px; /* Estilo premium de UI */
 }
 
 h2 {
   margin-top: 0;
-  font-size: 1.2rem;
-  color: #8c2549;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main);
 }
 
+p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.message {
+  margin-bottom: 16px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   4. ESPAÇOS PARA ESCREVER (Inputs Otimizados)
+   ========================================================================== */
 .form-row {
   display: grid;
-  gap: 10px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 20px; /* Mais espaço entre as linhas do formulário */
 }
 
 .form-row label {
   font-weight: 600;
-  color: #523f46;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 2px;
 }
 
+/* Inputs redesenhados: mais altos e fáceis de digitar */
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="email"],
+input[type="password"] {
   width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #f0ccd7;
+  padding: 12px 16px; /* Mais espaço interno para o texto respirar */
+  border-radius: 10px; /* Bordas mais suaves */
+  border: 1.5px solid var(--border-color); /* Linha levemente mais definida */
   font-size: 1rem;
+  color: var(--text-main);
+  background-color: #fdfcff;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease-in-out;
 }
 
+/* Efeito luminoso e moderno ao clicar nos campos */
 input[type="text"]:focus,
-input[type="number"]:focus {
-  border-color: #e25c8d;
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: var(--border-focus);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12); /* Sombra roxa fluida */
 }
 
+/* ==========================================================================
+   5. BOTÕES
+   ========================================================================== */
 button {
-  padding: 10px 16px;
+  padding: 12px 20px; /* Botões combinando com a altura dos inputs */
   border: none;
-  border-radius: 8px;
-  background: #e25c8d;
+  border-radius: 10px;
+  background: var(--primary);
   color: white;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
 }
 
 button.secondary {
-  background: #a38f97;
+  background: #f1f0f5;
+  color: var(--text-muted);
 }
 
 button:not(:last-child) {
@@ -108,91 +168,56 @@ button:not(:last-child) {
 }
 
 button:hover {
-  opacity: 0.90;
+  background: var(--primary-hover);
+  transform: translateY(-1px); /* Leve efeito de flutuar ao passar o mouse */
 }
 
+button.secondary:hover {
+  background: #e4e2eb;
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   6. TABELAS
+   ========================================================================== */
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 8px;
 }
 
 thead {
-  background: #fde8ee;
+  background: var(--primary-light);
 }
 
-th, td {
-  padding: 10px 12px;
+th {
+  padding: 14px 16px;
   text-align: left;
-  border-bottom: 1px solid #fae3e9;
+  font-weight: 700;
+  color: var(--primary-hover);
+  border-bottom: 2px solid var(--border-color);
+}
+
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--primary-light);
+  color: var(--text-main);
 }
 
 tr:hover {
-  background: #fff0f4;
+  background: #fbfaff;
 }
 
-.message {
-  margin-bottom: 12px;
-  color: #d23669;
-}
-
+/* ==========================================================================
+   7. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
 @media (min-width: 700px) {
-  .form-row {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  /* Aplica o comportamento de linha cheia apenas para a linha que contém o input de busca e botões soltos */
-  .form-row:has(input[type="text"]):has(button) input[type="text"] {
-    grid-column: 1 / -1;
-  }
-
-  .form-row:has(input[type="text"]):has(button) button {
-    grid-column: auto;
-    width: auto;
-    display: inline-block;
-  }
-}
-@media (min-width: 700px) {
-  .form-row {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-input[type="text"],
-input[type="number"] {
-  width: 100%;
-  padding: 10px 12px;
-  /* ... resto do seu código ... */
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-  border-color: #e25c8d;
-}
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #f0ccd7;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  border-color: #e25c8d;
-}
-@media (min-width: 700px) {
-  /* Altera para duas colunas APENAS se NÃO for o painel de login */
   .panel:not(.login-panel) .form-row {
     grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
-  /* Aplica o comportamento de linha cheia apenas para a linha que contém o input de busca e botões soltos */
   .form-row:has(input[type="text"]):has(button) input[type="text"] {
     grid-column: 1 / -1;
   }
