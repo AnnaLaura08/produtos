@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2b2124;
+  background: #fff5f7;
+}
+
+body {
+  margin: 0;
+  padding: 0 16px 32px;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.login-panel {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+header {
+  max-width: 980px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 2rem;
+  color: #d23669;
+}
+
+p {
+  margin: 0;
+  color: #705a63;
+}
+
+main {
+  max-width: 980px;
+  margin: 24px auto;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(210, 54, 105, 0.05);
+  margin-bottom: 24px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #8c2549;
+}
+
+.form-row {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.form-row label {
+  font-weight: 600;
+  color: #523f46;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #f0ccd7;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #e25c8d;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #e25c8d;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button.secondary {
+  background: #a38f97;
+}
+
+button:not(:last-child) {
+  margin-right: 8px;
+}
+
+button:hover {
+  opacity: 0.90;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #fde8ee;
+}
+
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #fae3e9;
+}
+
+tr:hover {
+  background: #fff0f4;
+}
+
+.message {
+  margin-bottom: 12px;
+  color: #d23669;
+}
+
+@media (min-width: 700px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Aplica o comportamento de linha cheia apenas para a linha que contém o input de busca e botões soltos */
+  .form-row:has(input[type="text"]):has(button) input[type="text"] {
+    grid-column: 1 / -1;
+  }
+
+  .form-row:has(input[type="text"]):has(button) button {
+    grid-column: auto;
+    width: auto;
+    display: inline-block;
+  }
+}
+@media (min-width: 700px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  /* ... resto do seu código ... */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #e25c8d;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #f0ccd7;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #e25c8d;
+}
+@media (min-width: 700px) {
+  /* Altera para duas colunas APENAS se NÃO for o painel de login */
+  .panel:not(.login-panel) .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Aplica o comportamento de linha cheia apenas para a linha que contém o input de busca e botões soltos */
+  .form-row:has(input[type="text"]):has(button) input[type="text"] {
+    grid-column: 1 / -1;
+  }
+
+  .form-row:has(input[type="text"]):has(button) button {
+    grid-column: auto;
+    width: auto;
+    display: inline-block;
+  }
+}
